@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCloud NDIS Interactive Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+
+    <!-- Top Navigation Branding -->
+    <header class="border-b border-slate-800 bg-slate-950 p-4 sticky top-0 z-50 shadow-md">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🐾</span>
+                <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">PetCloud NDIS Engine</span>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">Operational Middleware</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 md:p-8 space-y-8">
+        
+        <!-- Welcome banner tailored to PetCloud's Core Persona Strategy -->
+        <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950/20 p-6 rounded-2xl border border-slate-800 shadow-xl">
+            <h1 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Instant NDIS Quotation & Onboarding Portal</h1>
+            <p class="text-sm text-slate-400 max-w-2xl">
+                Bypass administrative backlogs. Generate compliant quotes matching the exact schedule guidelines ($140.46 baseline support structures) and dispatch localized placement parameters instantly.
+            </p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+            <!-- Left Side: Interactive Input Controls -->
+            <div class="md:col-span-3 space-y-6">
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-md">
+                    <h2 class="text-lg font-bold text-teal-400 flex items-center gap-2">
+                        <span>📊</span> 1. Calculate Core Support Budget
+                    </h2>
+                    
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Select Core Support Service Type</label>
+                        <select id="serviceType" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-teal-500 transition-colors">
+                            <option value="140.46">Disability Support Minding & Care ($140.46/hr)</option>
+                            <option value="45.00">Community Dog Walking ($45.00/hr)</option>
+                            <option value="65.00">Grooming & Hygiene Maintenance ($65.00/hr)</option>
+                            <option value="55.00">Pet Taxi Transport Operations ($55.00/hr)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target Postcode</label>
+                            <input type="text" id="postcode" value="4000" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white text-center focus:outline-none focus:border-teal-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Hours Per Week</label>
+                            <input type="number" id="hours" value="5" min="1" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white text-center focus:outline-none focus:border-teal-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Provider Travel / Kilometers</label>
+                        <input type="number" id="travel" value="12" min="0" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white text-center focus:outline-none focus:border-teal-500 transition-colors">
+                        <span class="text-[11px] text-slate-500 mt-1 block">Calculated at a compliant standard tier of $0.96 per km.</span>
+                    </div>
+
+                    <button onclick="calculateQuote()" class="w-full bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold py-3 px-4 rounded-xl shadow-lg shadow-teal-500/20 transition-all transform active:scale-[0.98]">
+                        Generate Live Package Quote
+                    </button>
+                </div>
+
+                <!-- Step 2: High Value Persona Onboarding Options -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-md">
+                    <h2 class="text-lg font-bold text-teal-400 flex items-center gap-2">
+                        <span>👤</span> 2. Apply Custom Care Safeguards
+                    </h2>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Select Matching Persona Filter</label>
+                        <select id="personaFilter" onchange="updatePersonaHooks()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-teal-500 transition-colors">
+                            <option value="standard">Standard High-Safety Allocation</option>
+                            <option value="corporate">Roster Shift Care (Katrina the Nurse / Glen the Exec)</option>
+                            <option value="vulnerable">High Trust Continuity (Richard / Noel / Libby)</option>
+                            <option value="premium">Premium Furbaby Standard (Sarah / Estelle)</option>
+                        </select>
+                    </div>
+                    <div id="personaBox" class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 leading-relaxed">
+                        Enforces: 100% Police Checks, Vet-endorsed safety credentials, and mandatory live biometric DVS checks.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Live Dynamic Output Node (The Result Ledger) -->
+            <div class="md:col-span-2 space-y-6">
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-6 shadow-md h-full sticky top-24">
+                    <div class="border-b border-slate-800 pb-4 text-center">
+                        <span class="text-xs font-bold tracking-widest text-slate-500 uppercase">Live Output Summary</span>
+                        <div class="text-4xl font-black text-white mt-1" id="displayTotal">$714.02</div>
+                        <span class="text-[11px] font-medium text-teal-400 bg-teal-500/10 px-2.5 py-0.5 rounded-full mt-2 inline-block">Estimated Weekly Allocation</span>
+                    </div>
+
+                    <!-- Breakdown fields -->
+                    <div class="space-y-3 text-xs">
+                        <div class="flex justify-between items-center p-2 rounded-lg bg-slate-900/50">
+                            <span class="text-slate-400">Core Support Base:</span>
+                            <span class="font-mono font-bold text-white" id="breakdownBase">$702.30</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded-lg bg-slate-900/50">
+                            <span class="text-slate-400">Provider Travel Tier:</span>
+                            <span class="font-mono font-bold text-white" id="breakdownTravel">$11.72</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded-lg bg-slate-900/50">
+                            <span class="text-slate-400">Target Region Clearance:</span>
+                            <span class="font-bold text-emerald-400" id="breakdownRegion">Postcode 4000 Clear</span>
+                        </div>
+                    </div>
+
+                    <!-- State 5 Broadcast Automator -->
+                    <div class="border-t border-slate-800 pt-4 space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">State 5 Broadcast Draft</span>
+                        <div class="p-3 bg-slate-900 rounded-xl font-mono text-[11px] text-teal-300 border border-teal-950 select-all cursor-pointer" id="broadcastText" title="Click to select all">
+                            Hi [Sitter Name], an NDIS job matching your postcode 4000 profile is available paying $140.46/hr. Reply YES to accept.
+                        </div>
+                        <p class="text-[10px] text-slate-500 italic">This copy script matches your state blueprint parameters exactly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Core Interactive Logic Engine -->
+    <script>
+        function calculateQuote() {
+            const serviceRate = parseFloat(document.getElementById('serviceType').value);
+            const hours = parseFloat(document.getElementById('hours').value) || 0;
+            const travelKms = parseFloat(document.getElementById('travel').value) || 0;
+            const postcode = document.getElementById('postcode').value || "Global";
+
+            // Standard NDIS compliant provider travel cost multiplier rules ($0.96 per kilometer margin)
+            const baseTotal = serviceRate * hours;
+            const travelTotal = travelKms * 0.96;
+            const grandTotal = baseTotal + travelTotal;
+
+            // Render calculations into front-facing HTML node states
+            document.getElementById('displayTotal').innerText = "$" + grandTotal.toFixed(2);
+            document.getElementById('breakdownBase').innerText = "$" + baseTotal.toFixed(2);
+            document.getElementById('breakdownTravel').innerText = "$" + travelTotal.toFixed(2);
+            document.getElementById('breakdownRegion').innerText = "Postcode " + postcode + " Clear";
+
+            // Live Update State 5 Broadcast parameters dynamically
+            document.getElementById('broadcastText').innerText = `Hi [Sitter Name], an NDIS job matching your postcode ${postcode} profile is available paying $${serviceRate.toFixed(2)}/hr. Reply YES to accept.`;
+        }
+
+        function updatePersonaHooks() {
+            const filter = document.getElementById('personaFilter').value;
+            const box = document.getElementById('personaBox');
+
+            const strategies = {
+                standard: "Enforces: 100% Police Checks, Vet-endorsed safety credentials, and mandatory live biometric DVS checks.",
+                corporate: "Enforces: Priority Last-Minute Booking Routing, Roster Variance Protection, and Automated Pet Taxi Dispatching rules.",
+                vulnerable: "Enforces: High-Trust Provider Isolation, Medical Adherence Checklists, and Direct Phone Check-ins.",
+                premium: "Enforces: Elite Care matching (RSPCA Collaboration Academy Graduates), Zero Separation configurations."
+            };
+
+            box.innerText = strategies[filter] || strategies.standard;
+        }
+    </script>
+</body>
+</html>
